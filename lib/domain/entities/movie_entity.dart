@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'genre.dart';
 
 class MovieEntity extends Equatable {
-  final int id;
+  final String id;
   final String title;
   final String director;
   final String summary;
@@ -26,4 +26,20 @@ class MovieEntity extends Equatable {
         summary,
         genre,
       ];
+
+  MovieEntity copyWith({
+    String? id,
+    String? title,
+    String? director,
+    String? summary,
+    List<Genre>? genre,
+  }) {
+    return MovieEntity(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      director: director ?? this.director,
+      summary: summary ?? this.summary,
+      genre: genre ?? this.genre,
+    );
+  }
 }

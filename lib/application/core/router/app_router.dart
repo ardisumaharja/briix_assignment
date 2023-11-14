@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../pages/movie/movie_page.dart';
-import '../pages/movies/movies_page.dart';
+import '../../pages/movie/movie_page.dart';
+import '../../pages/movies/movies_page.dart';
 
 part 'app_router.gr.dart';
 

@@ -1,6 +1,3 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:briix_assignment/application/core/app_router.dart';
-import 'package:briix_assignment/application/pages/movie/movie_page.dart';
 import 'package:flutter/material.dart';
 
 class CardMovieItem extends StatelessWidget {
@@ -9,11 +6,15 @@ class CardMovieItem extends StatelessWidget {
     required this.title,
     required this.director,
     required this.genres,
+    required this.id,
+    required this.onTap,
   });
 
   final String title;
   final String director;
   final List<String> genres;
+  final String id;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +23,16 @@ class CardMovieItem extends StatelessWidget {
         const SizedBox(height: 10),
         Card(
           child: InkWell(
-            onTap: () => context.router.push(MovieRoute(isCreate: false)),
+            onTap: onTap,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(title),
+                  Text(
+                    title,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
                   Text(director),
                   Align(
                     alignment: Alignment.centerRight,

@@ -22,6 +22,7 @@ abstract class _$AppRouter extends RootStackRouter {
         child: MoviePage(
           key: args.key,
           isCreate: args.isCreate,
+          id: args.id,
         ),
       );
     },
@@ -40,12 +41,14 @@ class MovieRoute extends PageRouteInfo<MovieRouteArgs> {
   MovieRoute({
     Key? key,
     required bool isCreate,
+    String? id,
     List<PageRouteInfo>? children,
   }) : super(
           MovieRoute.name,
           args: MovieRouteArgs(
             key: key,
             isCreate: isCreate,
+            id: id,
           ),
           initialChildren: children,
         );
@@ -59,15 +62,18 @@ class MovieRouteArgs {
   const MovieRouteArgs({
     this.key,
     required this.isCreate,
+    this.id,
   });
 
   final Key? key;
 
   final bool isCreate;
 
+  final String? id;
+
   @override
   String toString() {
-    return 'MovieRouteArgs{key: $key, isCreate: $isCreate}';
+    return 'MovieRouteArgs{key: $key, isCreate: $isCreate, id: $id}';
   }
 }
 

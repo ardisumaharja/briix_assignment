@@ -2,7 +2,9 @@ import 'package:briix_assignment/application/components/molecule/regular_input.d
 import 'package:flutter/material.dart';
 
 class SearchMovieSection extends StatefulWidget {
-  const SearchMovieSection({super.key});
+  const SearchMovieSection({super.key, required this.onChange});
+
+  final ValueChanged<String> onChange;
 
   @override
   State<SearchMovieSection> createState() => _SearchingMovieState();
@@ -27,14 +29,16 @@ class _SearchingMovieState extends State<SearchMovieSection> {
         setState(() {
           text = value;
         });
+        widget.onChange(value);
       },
       prefixIcon: Icons.search,
       suffix: InkWell(
-        onTap: () => {
+        onTap: () {
           setState(() {
-            // text = '';
             searchingCtrl.text = '';
-          })
+            text = '';
+          });
+          widget.onChange('');
         },
         child: text.isNotEmpty
             ? const Icon(Icons.close)
