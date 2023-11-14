@@ -36,14 +36,6 @@ class _FormSectionState extends State<FormSection> {
   }
 
   @override
-  void didUpdateWidget(covariant FormSection oldWidget) {
-    if (widget.movieEntity != oldWidget.movieEntity) {
-      titleCtrl.text = widget.movieEntity?.title ?? '';
-    }
-    super.didUpdateWidget(oldWidget);
-  }
-
-  @override
   void dispose() {
     titleCtrl.dispose();
     directorCtrl.dispose();
